@@ -1,0 +1,8 @@
+Welcome to the create form page.
+
+<%= form_for [@group, @event] do |form| %>
+  <%= form.label :date %> 
+  <%= form.date_select :date %>
+  <%= form.submit "Submit" %>
+<% end %>
+

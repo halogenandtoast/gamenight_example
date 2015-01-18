@@ -1,0 +1,9 @@
+<%= form_for(@boardgame) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.submit "submit" %>
+  </div>
+<% end %>

@@ -1,0 +1,26 @@
+<h1><%= @group.name %></h1>
+
+<ul>
+  <% @group.members.each do |member| %>
+    <li><%= member.name %></li>
+  <% end %>
+</ul>
+
+<% if @current_event %>
+  <span data-role="event-date">
+    <%= @current_event.date.strftime("%-m/%d/%y") %>
+  </span>
+  <% @current_event.boardgames.each do |boardgame| %>
+    <div>
+      Bringing <%= boardgame.name %>
+    </div>
+  <% end %>
+  <%= form_for [@current_event, @boardgame_option] do | form | %>
+    <%= form.label :boardgame_id, "Game" %>
+    <%= form.select :boardgame_id, current_user.boardgames.map { |game| [game.name, game.id] } %> 
+    <%= form.submit "submit" %>
+  <% end %>
+<% end %>
+
+
+<%= link_to "Schedule event", new_group_event_path(@group) %>

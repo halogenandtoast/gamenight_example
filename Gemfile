@@ -10,6 +10,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
+gem 'monban'
+gem 'monban-generators'
 
 group :test, :development do
   gem 'rspec-rails'
@@ -17,4 +19,5 @@ group :test, :development do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'capybara-webkit'
+  gem 'pry'
 end
