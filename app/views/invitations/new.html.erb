@@ -1,0 +1,5 @@
+<%= form_for [@group, @invitation] do |form| %>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+  <%= form.submit "Send" %>
+<% end %>

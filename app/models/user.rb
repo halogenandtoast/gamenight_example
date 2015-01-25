@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_many :groups, through: :group_memberships
 
   has_many :boardgames
+
+  def join_group(group)
+    groups << group
+  end
 end

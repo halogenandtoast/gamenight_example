@@ -6,6 +6,8 @@
   <% end %>
 </ul>
 
+<%= link_to "Invite user", new_group_invitation_path(@group) %>
+
 <% if @current_event %>
   <span data-role="event-date">
     <%= @current_event.date.strftime("%-m/%d/%y") %>

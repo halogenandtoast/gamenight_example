@@ -1,6 +1,11 @@
 require 'factory_girl'
 
 RSpec.configure do |config|
+
+  config.backtrace_exclusion_patterns = [
+    /gems/,
+  ]
+
   config.include FactoryGirl::Syntax::Methods
 
   config.expect_with :rspec do |expectations|

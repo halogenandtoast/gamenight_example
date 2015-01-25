@@ -20,4 +20,5 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'pry'
+  gem 'email_spec'
 end
