@@ -20,10 +20,16 @@
   <span data-role="event-date">
     <%= @current_event.date.strftime("%-m/%d/%y") %>
   </span>
-  <% @current_event.boardgames.each do |boardgame| %>
-    <div>
-      Bringing <%= boardgame.name %>
-    </div>
+  <% @current_event.boardgame_options.each do |option| %>
+    <%= div_for(option.boardgame) do %>
+      Bringing <%= option.name %>
+      <%= link_to "Take seat", boardgame_option_seats_path(option), method: :post %>
+      <div data-role="seats">
+        <% option.seats.each do |seat| %>
+          <%= seat.user_name %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
   <%= form_for [@current_event, @boardgame_option] do | form | %>
     <%= form.label :boardgame_id, "Game" %>

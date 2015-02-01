@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     resources :rsvps, only: [:create]
   end
 
+  resources :boardgame_options, only: :none do
+    resources :seats, only: [:create]
+  end
+
   resources :boardgames, only: [:new, :create]
 
   get "register" => "users#new"

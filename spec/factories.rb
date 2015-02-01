@@ -21,4 +21,9 @@ FactoryGirl.define do
     group
     date { Date.current + 1.day }
   end
+
+  factory :rsvp do
+    event
+    user
+  end
 end

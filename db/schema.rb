@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201020859) do
+ActiveRecord::Schema.define(version: 20150201030943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,11 @@ ActiveRecord::Schema.define(version: 20150201020859) do
 
   add_index "rsvps", ["event_id"], name: "index_rsvps_on_event_id", using: :btree
   add_index "rsvps", ["user_id"], name: "index_rsvps_on_user_id", using: :btree
+
+  create_table "seats", force: true do |t|
+    t.integer "boardgame_option_id"
+    t.integer "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name",            null: false

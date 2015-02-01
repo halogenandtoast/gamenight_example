@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :group_memberships, foreign_key: :member_id
   has_many :groups, through: :group_memberships
   has_many :rsvps
+  has_many :seats
 
   has_many :boardgames
 
