@@ -9,8 +9,10 @@ class Invitation < ActiveRecord::Base
   end
 
   def complete
-    receiver.join_group(group)
-    destroy
+    if receiver
+      receiver.join_group(group)
+      destroy
+    end
   end
 
   def to_param

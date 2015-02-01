@@ -5,9 +5,20 @@ class InvitationsController < ApplicationController
   end
 
   def show
-    invitation = Invitation.find_by(code: params[:id])
-    invitation.complete
-    redirect_to invitation.group
+    @invitation = find_invitation
+    @group = @invitation.group
+
+    if @invitation.complete
+      redirect_to @invitation.group
+    end
+  end
+
+  def update
+    # create the user
+    @invitation = find_invitation
+    sign_up(params[:invitation][:user])
+    @invitation.complete
+    redirect_to @invitation.group
   end
 
   def create
@@ -18,6 +29,10 @@ class InvitationsController < ApplicationController
   end
 
   private
+
+  def find_invitation
+    @_invitation ||= Invitation.find_by(code: params[:id])
+  end
 
   def find_group
     current_user.groups.find(params[:group_id])
