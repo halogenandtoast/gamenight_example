@@ -9,6 +9,14 @@
 <%= link_to "Invite user", new_group_invitation_path(@group) %>
 
 <% if @current_event %>
+  <%= link_to "RSVP", event_rsvps_path(@current_event), method: :post %>
+
+  <div  data-role="attendees">
+    <% @current_event.attendees.each do |attendee| %>
+      <div><%= attendee.name %></div>
+    <% end %>
+  </div>
+
   <span data-role="event-date">
     <%= @current_event.date.strftime("%-m/%d/%y") %>
   </span>

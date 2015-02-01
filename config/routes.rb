@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :events, only: :none do
     resources :boardgame_options, only: [:create]
+    resources :rsvps, only: [:create]
   end
 
   resources :boardgames, only: [:new, :create]
