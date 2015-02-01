@@ -1,0 +1,42 @@
+.welcome-show {
+  background-color: #AFAFAF;
+
+  header {
+    font-size: 1.5em;
+    background-color: #FFF;
+    padding-top: 150px;
+    color: #AFAFAF;
+    text-align: center;
+
+    h1 {
+      padding-bottom: 15px;
+    }
+  }
+
+  nav {
+    margin-top: 50px;
+    text-align: center;
+    a:first-of-type {
+      margin-right: 10px;
+    }
+    a {
+      font-size: 2em;
+      background-color: #77AA77;
+      color: #FFF;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #338833;
+      }
+    }
+  }
+
+  section {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 1.5em;
+  }
+}
