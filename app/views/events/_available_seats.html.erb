@@ -1,0 +1,11 @@
+<% event.boardgame_options.each do |option| %>
+  <%= div_for(option.boardgame) do %>
+    Bringing <%= option.name %>
+    <%= link_to "Take seat", boardgame_option_seats_path(option), method: :post %>
+    <div data-role="seats">
+      <% option.seats.each do |seat| %>
+        <%= seat.user_name %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

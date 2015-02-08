@@ -1,0 +1,5 @@
+<ul data-role="boardgames">
+  <% current_user.boardgames.each do |game| %>
+    <li><%= game.name %></li>
+  <% end %>
+</ul>

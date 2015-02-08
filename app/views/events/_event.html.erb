@@ -1,0 +1,10 @@
+<%= link_to "RSVP", event_rsvps_path(event), method: :post %>
+
+<%= render "events/attendees", event: event %>
+
+<span data-role="event-date">
+  <%= event.date.strftime("%-m/%d/%y") %>
+</span>
+
+<%= render "events/available_seats", event: event %>
+<%= render "events/boardgame_select", event: event %>

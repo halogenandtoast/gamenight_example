@@ -1,0 +1,5 @@
+<%= form_for [event, BoardgameOption.new] do | form | %>
+  <%= form.label :boardgame_id, "Game" %>
+  <%= form.select :boardgame_id, current_user.boardgames.map { |game| [game.name, game.id] } %> 
+  <%= form.submit "submit" %>
+<% end %>

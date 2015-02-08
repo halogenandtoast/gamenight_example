@@ -1,0 +1,7 @@
+<ul>
+  <% group.members.each do |member| %>
+    <li><%= member.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Invite user", new_group_invitation_path(group) %>

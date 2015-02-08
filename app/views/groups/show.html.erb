@@ -1,42 +1,9 @@
 <h1><%= @group.name %></h1>
 
-<ul>
-  <% @group.members.each do |member| %>
-    <li><%= member.name %></li>
-  <% end %>
-</ul>
-
-<%= link_to "Invite user", new_group_invitation_path(@group) %>
+<%= render "members", group: @group %>
 
 <% if @current_event %>
-  <%= link_to "RSVP", event_rsvps_path(@current_event), method: :post %>
-
-  <div  data-role="attendees">
-    <% @current_event.attendees.each do |attendee| %>
-      <div><%= attendee.name %></div>
-    <% end %>
-  </div>
-
-  <span data-role="event-date">
-    <%= @current_event.date.strftime("%-m/%d/%y") %>
-  </span>
-  <% @current_event.boardgame_options.each do |option| %>
-    <%= div_for(option.boardgame) do %>
-      Bringing <%= option.name %>
-      <%= link_to "Take seat", boardgame_option_seats_path(option), method: :post %>
-      <div data-role="seats">
-        <% option.seats.each do |seat| %>
-          <%= seat.user_name %>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
-  <%= form_for [@current_event, @boardgame_option] do | form | %>
-    <%= form.label :boardgame_id, "Game" %>
-    <%= form.select :boardgame_id, current_user.boardgames.map { |game| [game.name, game.id] } %> 
-    <%= form.submit "submit" %>
-  <% end %>
+  <%= render @current_event %>
 <% end %>
-
 
 <%= link_to "Schedule event", new_group_event_path(@group) %>

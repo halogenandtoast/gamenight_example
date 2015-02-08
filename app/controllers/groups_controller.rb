@@ -11,7 +11,6 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @current_event = @group.current_event
-    @boardgame_option = BoardgameOption.new
   end
 
   private

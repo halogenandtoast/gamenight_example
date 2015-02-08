@@ -21,6 +21,16 @@ RSpec.configure do |config|
     Monban.test_reset!
   end
 
+  config.around do |example|
+    if example.metadata[:travel_to]
+      travel_to example.metadata[:travel_to] do
+        example.run
+      end
+    else
+      example.run
+    end
+  end
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!

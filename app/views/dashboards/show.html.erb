@@ -3,14 +3,5 @@ Welcome, <%= current_user.name %>
 <%= link_to "Create Group", new_group_path %>
 <%= link_to "Add Boardgame", new_boardgame_path %>
 
-<ul>
-  <% current_user.groups.each do |group| %>
-    <li><%= link_to group.name, group %></li>
-  <% end %>
-</ul>
-
-<ul data-role="boardgames">
-  <% current_user.boardgames.each do |game| %>
-    <li><%= game.name %></li>
-  <% end %>
-</ul>
+<%= render "groups" %>
+<%= render "boardgames" %>
